@@ -1,4 +1,6 @@
-import animation from './animation'
+import Transition from './animation/transition'
+import Scroll from './utils/lenis'
+
 import './styles/style.css'
 class App {
 	constructor() {
@@ -6,7 +8,8 @@ class App {
 	}
 
 	init() {
-		new animation()
+		new Transition()
+		Scroll()
 	}
 }
 
