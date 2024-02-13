@@ -1,5 +1,9 @@
-import { gsap } from 'gsap'
+export default class Animation {
+	constructor() {
+		this.init()
+	}
 
-export default function animation() {
-	console.log('animation', gsap)
+	init() {
+		console.log('animation')
+	}
 }
