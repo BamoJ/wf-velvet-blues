@@ -1,4 +1,5 @@
 import Transition from './animation/transition'
+import IndexHover from './animation/indexhover'
 import Scroll from './utils/lenis'
 
 import './styles/style.css'

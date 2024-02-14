@@ -3,6 +3,4 @@ node_modules
 dist
 dist-ssr
 *.local
-.env
-.eslintcache 
-.vscode
+.env 
