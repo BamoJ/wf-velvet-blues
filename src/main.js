@@ -1,6 +1,6 @@
-import Transition from './animation/transition'
-import IndexHover from './animation/indexhover'
 import Scroll from './utils/lenis'
+import CardScroll from './animation/cardscroll'
+import Transition from './animation/transition'
 
 import './styles/style.css'
 class App {
@@ -10,6 +10,7 @@ class App {
 
 	init() {
 		new Transition()
+		new CardScroll()
 		Scroll()
 	}
 }

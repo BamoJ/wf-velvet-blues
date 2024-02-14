@@ -8,40 +8,61 @@ export default class Transition {
 		this.initBarba()
 	}
 
-	homeEnter() {
-		const tl = gsap.timeline()
+	homePageLeaveAnimation(data) {
+		return gsap.to(data.current.container, {
+			opacity: 0,
+			duration: 1,
+			ease: 'power3.inOut',
+		})
+
+		// Add your GSAP animation for the Home page when leaving
 	}
 
-	homeLeave() {
-		const tl = gsap.timeline()
-	}
-
-	legendEnter() {
-		const tl = gsap.timeline()
-	}
-
-	legendLeave() {
-		const tl = gsap.timeline()
+	homeEn(data) {
+		gsap.from(data.next.container, {
+			opacity: 0,
+			duration: 1,
+			ease: 'power3.inOut',
+		})
 	}
 
 	initBarba() {
+		const self = this
+		// Initialize Barba.js
 		barba.init({
+			prevent: ({ href }) => href === window.location.href,
 			transitions: [
 				{
-					name: 'default-transition',
-					leave(data) {
-						return gsap.to(data.current.container, {
-							opacity: 0,
-							duration: 0.5,
-							ease: 'power2.out',
-						})
+					name: 'home-transition',
+					from: { namespace: ['home'] },
+					to: { namespace: 'legend' },
+					async leave(data) {
+						await self.homePageLeaveAnimation(data)
 					},
-					enter(data) {
-						return gsap.to(data.current.container, {
-							opacity: 0,
-							duration: 0.5,
-							ease: 'power2.out',
-						})
+					async enter(data) {
+						await self.homeEn(data)
+					},
+				},
+				{
+					name: 'legend-transition',
+					from: { namespace: ['legend'] },
+					to: { namespace: 'home' },
+					async leave(data) {
+						await self.homePageLeaveAnimation(data)
+					},
+					async enter(data) {
+						await self.homeEn(data)
+					},
+				},
+				{
+					name: 'legend-to-transition',
+					from: { namespace: ['legend'] },
+					to: { namespace: 'legend' },
+					async leave(data) {
+						await self.homePageLeaveAnimation(data)
+					},
+					async enter(data) {
+						await self.homeEn(data)
 					},
 				},
 			],
@@ -49,9 +70,9 @@ export default class Transition {
 
 		// Add Barba.js hook to scroll to top after transition
 		barba.hooks.after((data) => {
-			IndexHover() // Reinitialize hover animations
 			window.scrollTo(0, 0) // Scroll to top of the page
 			resetWebflow(data) // Reset Webflow interactions
+			new IndexHover() // Reinitialize hover animations
 		})
 	}
 }
