@@ -8,9 +8,7 @@ export default class CardScroll {
 		this.initCardScroll()
 	}
 
-	cardScroll() {
-		console.log('Card scroll initialized')
-	}
+	cardScroll() {}
 
 	initCardScroll() {
 		this.cardScroll()

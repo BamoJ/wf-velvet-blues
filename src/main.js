@@ -1,6 +1,7 @@
 import Scroll from './utils/lenis'
 import CardScroll from './animation/cardscroll'
-import Transition from './animation/transition'
+import IndexHover from './animation/indexhover'
+import Preloader from './animation/preloader'
 
 import './styles/style.css'
 class App {
@@ -9,10 +10,21 @@ class App {
 	}
 
 	init() {
-		new Transition()
+		new Preloader()
 		new CardScroll()
-		Scroll()
+		new Scroll()
+
+		const dataPage = document
+			.querySelector('body')
+			.getAttribute('data-page')
+		if (dataPage === 'index') {
+			new IndexHover()
+		} else {
+			return
+		}
 	}
 }
 
-new App()
+document.addEventListener('DOMContentLoaded', () => {
+	new App()
+})
