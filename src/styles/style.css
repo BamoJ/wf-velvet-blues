@@ -1,4 +1,5 @@
-.line {
+.lineChild {
   background-color: transparent;
   height: auto;
+  overflow: hidden;
 }

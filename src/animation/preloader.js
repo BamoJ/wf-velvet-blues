@@ -1,6 +1,5 @@
 import gsap from 'gsap'
 import { Flip } from 'gsap/Flip'
-import SplitType from 'split-type'
 gsap.registerPlugin(Flip)
 
 export default class Preloader {
@@ -8,6 +7,10 @@ export default class Preloader {
 		this.state = Flip.getState('.intro__img, .intro__img-wrap')
 		this.wrap = document.querySelector('.intro__img-wrap')
 		this.imgs = document.querySelectorAll('.intro__img .img')
+		this.heroLink = document.querySelectorAll('[data-animation=head]')
+		this.heroNum = document.querySelectorAll('[data-animation=num]')
+		this.navItems = document.querySelectorAll('[data-animation=nav]')
+
 		gsap.set(this.imgs, {
 			transformOrigin: 'bottom bottom',
 		})
@@ -23,6 +26,12 @@ export default class Preloader {
 			scale: true,
 			absolute: true,
 			stagger: 0.035,
+			onComplete: () => {
+				this.wrap.classList.toggle('flex')
+				gsap.set('.intro__load', {
+					display: 'none',
+				})
+			},
 		})
 			.to(
 				'.whipe',
@@ -44,6 +53,93 @@ export default class Preloader {
 					ease: 'expo.inOut',
 				},
 				'>-0.3',
+			)
+			.from(
+				this.heroLink,
+				{
+					yPercent: 100,
+					duration: 0.8,
+					ease: 'power4.easeOut',
+					stagger: {
+						each: 0.03,
+					},
+				},
+				'>-0.65',
+			)
+			.from(
+				this.heroNum,
+				{
+					yPercent: 100,
+					duration: 1,
+					ease: 'power2.easeOut',
+					stagger: {
+						each: 0.03,
+					},
+				},
+				'<',
+			)
+			.from(
+				this.navItems,
+				{
+					yPercent: 105,
+					duration: 1,
+					ease: 'power2.easeOut',
+					stagger: {
+						each: 0.2,
+					},
+				},
+				'<+.3',
+			)
+			.from(
+				'.nav__line',
+				{
+					width: '0%',
+					duration: 1.8,
+					ease: 'power3.inOut',
+				},
+				'<-.2',
+			)
+			.from(
+				'.hero__small-p .line_inner',
+				{
+					yPercent: 105,
+					duration: 1,
+					ease: 'power2.easeOut',
+					stagger: {
+						each: 0.2,
+					},
+				},
+				'<+.2',
+			)
+			.from(
+				'.hero__a',
+				{
+					autoAlpha: 0,
+					duration: 1.5,
+					ease: 'sine.easeOut',
+				},
+				'<',
+			)
+			.from(
+				'.asterix',
+				{
+					autoAlpha: 0,
+					duration: 1.5,
+					ease: 'sine.easeOut',
+				},
+				'<',
+			)
+			.from(
+				'.h1__small',
+				{
+					yPercent: 100,
+					duration: 1,
+					ease: 'power2.easeOut',
+					stagger: {
+						each: 0.05,
+					},
+				},
+				'<',
 			)
 	}
 

@@ -9,7 +9,7 @@ export default class IndexHover {
 			height: '0%',
 			transformOrigin: 'top',
 		})
-		this.split = new Split()
+		gsap.set
 
 		this.initHover()
 	}
@@ -19,12 +19,12 @@ export default class IndexHover {
 			legend.addEventListener('mouseenter', () => {
 				gsap.to(this.legendImgs[i], {
 					height: '100%',
-					duration: 0.5,
+					duration: 0.75,
 					ease: 'power2.out',
 					overwrite: true,
 				})
 				gsap.to(this.legends[i].querySelectorAll(' .char'), {
-					y: '-100%',
+					yPercent: -100,
 					duration: 0.55,
 					ease: 'power3.out',
 					stagger: {
@@ -39,9 +39,10 @@ export default class IndexHover {
 					height: '0%',
 					duration: 0.5,
 					ease: 'power2.out',
+					overwrite: true,
 				})
 				gsap.to(this.legends[i].querySelectorAll(' .char'), {
-					y: '0%',
+					yPercent: 0,
 					duration: 0.5,
 					ease: 'power3.out',
 					stagger: 0.035,

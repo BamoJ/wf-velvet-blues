@@ -8,18 +8,33 @@ export default class Split {
 
 	splitText() {
 		this.runSplit = () => {
-			this.split = new SplitType('[data-stagger=text]', {
-				types: 'lines,words,chars',
+			this.text = document.querySelectorAll('[data-stagger=text]')
+
+			this.text.forEach((text) => {
+				this.textContent = text.textContent
+
+				this.split = new SplitType(this.text, {
+					types: 'lines,words,chars',
+					lineClass: 'lineChild',
+				})
+
+				this.textLine = document.querySelectorAll('.lineChild')
+
+				this.textLine.forEach((line) => {
+					this.lineContent = line.innerHTML
+					line.innerHTML = ''
+					line.innerHTML = `<span class="line_inner" style="display: block;">${this.lineContent}</span>`
+				})
 			})
 		}
-		this.runSplit()
-	}
 
-	resize() {
+		this.runSplit()
+
 		window.addEventListener('resize', () => {
 			if (this.width !== window.innerWidth) {
 				this.width = window.innerWidth
 				this.split.revert()
+				this.text.textContent = this.textContent
 				this.runSplit()
 			}
 		})
@@ -27,6 +42,5 @@ export default class Split {
 
 	initSplit() {
 		this.splitText()
-		this.resize()
 	}
 }
