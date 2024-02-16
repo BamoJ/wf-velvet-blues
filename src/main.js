@@ -17,6 +17,7 @@ class App {
 		const dataPage = document
 			.querySelector('body')
 			.getAttribute('data-page')
+
 		if (dataPage === 'index') {
 			new IndexHover()
 		} else {

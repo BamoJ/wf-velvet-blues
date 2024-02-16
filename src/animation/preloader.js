@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { Flip } from 'gsap/Flip'
+import SplitType from 'split-type'
 gsap.registerPlugin(Flip)
 
 export default class Preloader {
@@ -10,7 +11,6 @@ export default class Preloader {
 		gsap.set(this.imgs, {
 			transformOrigin: 'bottom bottom',
 		})
-
 		this.init()
 	}
 
