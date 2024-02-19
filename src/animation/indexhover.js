@@ -29,6 +29,7 @@ export default class IndexHover {
 					ease: 'power3.out',
 					stagger: {
 						each: 0.02,
+						from: 'center',
 					},
 					overwrite: true,
 				})

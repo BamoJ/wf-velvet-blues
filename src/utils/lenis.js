@@ -7,9 +7,10 @@ export default function Scroll() {
 		smoothWheel: true,
 		wheelMultiplier: 1,
 		autoResize: true,
+		touchMultiplier: 1,
 	})
 
-	function raf(time) {
+	const raf = (time) => {
 		lenis.raf(time)
 		requestAnimationFrame(raf)
 	}

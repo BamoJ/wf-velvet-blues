@@ -3,58 +3,46 @@ import CardScroll from './animation/cardscroll'
 import IndexHover from './animation/indexhover'
 import Preloader from './animation/preloader'
 import Split from './utils/split'
-import PageTransition from './animation/transitionload'
-
+import pageTransition from './animation/transitionload'
 import './styles/style.css'
+
 class App {
 	constructor() {
 		this.init()
 	}
 
-	initLoadTrans() {
-		const isFirstLoad = sessionStorage.getItem('first_load') === null
-		const dataPage = document
-			.querySelector('body')
-			.getAttribute('data-page')
-		const loader = document.querySelector('.intro__load')
-		const transition = document.querySelector('.transition')
+	// initPreload() {
+	// 	const isFirstLoad = sessionStorage.getItem('first_load') === null
+	// 	const dataPage = document.body.getAttribute('data-page')
+	// 	const loader = document.querySelector('.intro__load')
 
-		if (dataPage === 'index') {
-			if (isFirstLoad && dataPage) {
-				sessionStorage.setItem('first_load', 'true')
-				loader.style.display = 'block'
-				transition.style.display = 'none'
-				new Preloader() // Show the preloader
-				new PageTransition()
-			} else {
-				transition.style.display = 'block'
-				loader.style.display = 'none'
-				new PageTransition()
-			}
-		} else if (!isFirstLoad) {
-			transition.style.display = 'block'
-			new PageTransition()
-		} else {
-			transition.style.display = 'block' // Display the transition element
-			new PageTransition()
-		}
-	}
+	// 	if (dataPage === 'index' && isFirstLoad) {
+	// 		sessionStorage.setItem('first_load', 'true')
+	// 		loader.style.display = 'block'
+	// 		new Preloader() // Show the preloader
+	// 	} else if (dataPage === 'index' && !isFirstLoad) {
+	// 		loader.style.display = 'none'
+	// 		return
+	// 	}
+	// }
 
-	init() {
-		new Split()
-		new CardScroll()
-		new Scroll()
-		this.initLoadTrans()
-
+	initHover() {
 		const dataPage = document
 			.querySelector('body')
 			.getAttribute('data-page')
 
 		if (dataPage === 'index') {
 			new IndexHover()
-		} else {
-			return
-		}
+		} else return
+	}
+
+	init() {
+		new Split()
+		new CardScroll()
+		new Scroll()
+		this.initHover()
+		new pageTransition()
+		// this.initPreload()
 	}
 }
 

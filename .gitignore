@@ -4,3 +4,6 @@ dist
 dist-ssr
 *.local
 .env 
+barba.js
+ajax.js
+```
