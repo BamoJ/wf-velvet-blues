@@ -11,20 +11,20 @@ class App {
 		this.init()
 	}
 
-	// initPreload() {
-	// 	const isFirstLoad = sessionStorage.getItem('first_load') === null
-	// 	const dataPage = document.body.getAttribute('data-page')
-	// 	const loader = document.querySelector('.intro__load')
+	initPreload() {
+		const isFirstLoad = sessionStorage.getItem('first_load') === null
+		const dataPage = document.body.getAttribute('data-page')
+		const loader = document.querySelector('.intro__load')
 
-	// 	if (dataPage === 'index' && isFirstLoad) {
-	// 		sessionStorage.setItem('first_load', 'true')
-	// 		loader.style.display = 'block'
-	// 		new Preloader() // Show the preloader
-	// 	} else if (dataPage === 'index' && !isFirstLoad) {
-	// 		loader.style.display = 'none'
-	// 		return
-	// 	}
-	// }
+		if (dataPage === 'index' && isFirstLoad) {
+			sessionStorage.setItem('first_load', 'true')
+			loader.style.display = 'block'
+			new Preloader() // Show the preloader
+		} else if (dataPage === 'index' && !isFirstLoad) {
+			loader.style.display = 'none'
+			return
+		}
+	}
 
 	initHover() {
 		const dataPage = document
@@ -42,7 +42,7 @@ class App {
 		new Scroll()
 		this.initHover()
 		new pageTransition()
-		// this.initPreload()
+		this.initPreload()
 	}
 }
 
