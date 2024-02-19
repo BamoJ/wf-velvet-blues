@@ -45,7 +45,7 @@ export default class pageTransition {
 		tl.to(
 			'.t__wrap.first',
 			{
-				scale: 0.95,
+				scale: 0.97,
 				duration: 1,
 				ease: 'power1.out',
 			},
@@ -73,10 +73,10 @@ export default class pageTransition {
 			'.t__wrap.second',
 			{
 				y: '100svh',
-				duration: 1.75,
+				duration: 1.65,
 				ease: 'expo.out',
 			},
-			'<+0.35',
+			'<+0.55',
 		)
 
 		tl.from(
@@ -106,12 +106,24 @@ export default class pageTransition {
 		tl.fromTo(
 			'.t__wrap.second .img_whipe',
 			{
-				height: 200,
+				height: 250,
 			},
 			{
 				height: 0,
-				duration: 1.5,
+				duration: 1.65,
 				ease: 'power3.out',
+			},
+			'<',
+		)
+		tl.fromTo(
+			'.t__wrap.second .img',
+			{
+				scale: 1.15,
+			},
+			{
+				scale: 1,
+				duration: 1.5,
+				ease: 'power2.out',
 			},
 			'<',
 		)

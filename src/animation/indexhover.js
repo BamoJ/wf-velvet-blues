@@ -46,7 +46,10 @@ export default class IndexHover {
 					yPercent: 0,
 					duration: 0.5,
 					ease: 'power3.out',
-					stagger: 0.035,
+					stagger: {
+						each: 0.02,
+						from: 'center',
+					},
 					overwrite: true,
 				})
 			})
