@@ -1,4 +1,7 @@
 import gsap from 'gsap' // Import GSAP
+import CustomEase from 'gsap/CustomEase' // Import CustomEase
+
+gsap.registerPlugin(CustomEase) // Register CustomEase
 
 export default class pageTransition {
 	constructor() {
@@ -37,6 +40,8 @@ export default class pageTransition {
 
 	transition() {
 		document.querySelector('html').classList.add('animating')
+		this.whipe = document.querySelector('.t__wrap.second .img_whipe')
+		this.img = document.querySelector('.t__wrap.second .img')
 
 		const tl = gsap.timeline({
 			onComplete: this.updatePage.bind(this),
@@ -103,30 +108,36 @@ export default class pageTransition {
 			},
 			'<',
 		)
-		tl.fromTo(
-			'.t__wrap.second .img_whipe',
-			{
-				height: 250,
-			},
-			{
-				height: 0,
-				duration: 1.65,
-				ease: 'power3.out',
-			},
-			'<',
-		)
-		tl.fromTo(
-			'.t__wrap.second .img',
-			{
-				scale: 1.15,
-			},
-			{
-				scale: 1,
-				duration: 1.5,
-				ease: 'power2.out',
-			},
-			'<',
-		)
+
+		if (this.whipe && this.img) {
+			tl.fromTo(
+				this.whipe,
+				{
+					height: '100%',
+				},
+				{
+					height: '0%',
+					duration: 2,
+					ease: CustomEase.create(
+						'custom',
+						'M0,0 C0.084,0.61 0.131,0.712 0.2,0.8 0.284,0.908 0.374,1 1,1 ',
+					),
+				},
+				'<',
+			)
+			tl.fromTo(
+				this.img,
+				{
+					scale: 1.2,
+				},
+				{
+					scale: 1,
+					duration: 1.6,
+					ease: 'power2.out',
+				},
+				'<',
+			)
+		}
 	}
 
 	updatePage() {

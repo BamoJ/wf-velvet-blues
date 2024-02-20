@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import Split from '../utils/split'
+
 export default class IndexHover {
 	constructor() {
 		this.width = window.innerWidth
@@ -9,7 +9,6 @@ export default class IndexHover {
 			height: '0%',
 			transformOrigin: 'top',
 		})
-		gsap.set
 
 		this.initHover()
 	}

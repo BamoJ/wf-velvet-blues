@@ -38,8 +38,8 @@ class App {
 
 	init() {
 		new Split()
-		new CardScroll()
-		new Scroll()
+		// new CardScroll()
+		Scroll()
 		this.initHover()
 		new pageTransition()
 		this.initPreload()
