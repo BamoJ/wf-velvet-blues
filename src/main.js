@@ -1,9 +1,9 @@
 import Scroll from './utils/lenis'
-import CardScroll from './animation/cardscroll'
 import IndexHover from './animation/indexhover'
 import Preloader from './animation/preloader'
 import Split from './utils/split'
 import pageTransition from './animation/transitionload'
+import CardScroll from './animation/cardscroll'
 import './styles/style.css'
 
 class App {
@@ -33,18 +33,18 @@ class App {
 	}
 
 	initCardScroll() {
-		if (dataPage === 'legend') {
+		if (this.dataPage === 'legend') {
 			new CardScroll()
-		}
+		} else return
 	}
 
 	init() {
 		new Split()
-		// new CardScroll()
 		Scroll()
 		this.initHover()
 		new pageTransition()
 		this.initPreload()
+		this.initCardScroll()
 	}
 }
 
