@@ -94,7 +94,7 @@ export default class pageTransition {
 				duration: 1,
 				ease: 'power4.easeOut',
 				stagger: {
-					each: 0.03,
+					each: 0.025,
 				},
 			},
 			'<+0.35',

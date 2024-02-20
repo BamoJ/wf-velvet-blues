@@ -8,32 +8,34 @@ import './styles/style.css'
 
 class App {
 	constructor() {
+		this.dataPage = document.body.getAttribute('data-page')
 		this.init()
 	}
 
 	initPreload() {
 		const isFirstLoad = sessionStorage.getItem('first_load') === null
-		const dataPage = document.body.getAttribute('data-page')
 		const loader = document.querySelector('.intro__load')
 
-		if (dataPage === 'index' && isFirstLoad) {
+		if (this.dataPage === 'index' && isFirstLoad) {
 			sessionStorage.setItem('first_load', 'true')
 			loader.style.display = 'block'
 			new Preloader() // Show the preloader
-		} else if (dataPage === 'index' && !isFirstLoad) {
+		} else if (this.dataPage === 'index' && !isFirstLoad) {
 			loader.style.display = 'none'
 			return
 		}
 	}
 
 	initHover() {
-		const dataPage = document
-			.querySelector('body')
-			.getAttribute('data-page')
-
-		if (dataPage === 'index') {
+		if (this.dataPage === 'index') {
 			new IndexHover()
 		} else return
+	}
+
+	initCardScroll() {
+		if (dataPage === 'legend') {
+			new CardScroll()
+		}
 	}
 
 	init() {

@@ -1,34 +1,43 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { css } from 'jquery'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default class CardScroll {
 	constructor() {
+		this.cards = document.querySelectorAll('.live__card-link')
+		this.cardHeight = ''
+		this.animation = gsap.timeline()
 		this.initCardScroll()
 	}
 
 	cardScroll() {
-		this.trigger = document.querySelector('.card-scroll')
-		this.cards = document.querySelectorAll('.card-scroll__card')
-		this.tl = gsap.timeline(
-			{
-				scrollTrigger: {
-					trigger: this.trigger,
-					start: 'top top',
-					end: 'bottom top',
-					scrub: 1,
-					toggleActions: 'play none none reverse',
-				},
-			},
+		this.animation.clear()
+		this.cardHeight = this.cards[0].offsetHeight
 
-			tl.from(this.cards, {
-				xPercent: -100,
-				opacity: 0,
-				duration: 1,
-				stagger: 0.2,
-			}),
-		)
+		this.cards.forEach((card, index) => {
+			if (index > 0) {
+				gsap.set(card, { y: this.cardHeight * index })
+
+				this.animation.to(card, {
+					y: 0,
+					duration: index * 0.25,
+					ease: 'none',
+				})
+			}
+		})
+
+		ScrollTrigger.create({
+			trigger: '.track',
+			start: 'top top',
+			end: 'bottom bottom',
+			pin: true,
+			scrub: true,
+			animation: this.animation,
+			invalidateOnRefresh: true,
+			markers: true,
+		})
 	}
 
 	initCardScroll() {
