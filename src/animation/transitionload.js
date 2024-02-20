@@ -42,6 +42,9 @@ export default class pageTransition {
 		document.querySelector('html').classList.add('animating')
 		this.whipe = document.querySelector('.t__wrap.second .img_whipe')
 		this.img = document.querySelector('.t__wrap.second .img')
+		this.smallTransEl = document.querySelectorAll(
+			'.t__wrap.second [data-animation=trans-p]',
+		)
 
 		const tl = gsap.timeline({
 			onComplete: this.updatePage.bind(this),
@@ -108,6 +111,22 @@ export default class pageTransition {
 			},
 			'<',
 		)
+
+		if (this.smallTransEl.length > 0) {
+			// Check if any elements were found
+			tl.from(
+				this.smallTransEl,
+				{
+					yPercent: 100,
+					duration: 1,
+					ease: 'power3.easeOut',
+					stagger: {
+						each: 0.03,
+					},
+				},
+				'<',
+			)
+		}
 
 		if (this.whipe && this.img) {
 			tl.fromTo(
