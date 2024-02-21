@@ -24,7 +24,6 @@ export default class CardScroll {
 					end: 'bottom bottom',
 					pin: true,
 					scrub: 0.6,
-					markers: true,
 				},
 			})
 			.to(this.firstCard, {

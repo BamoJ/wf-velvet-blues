@@ -2,7 +2,6 @@ import gsap from 'gsap'
 
 export default class IndexHover {
 	constructor() {
-		this.width = window.innerWidth
 		this.legends = document.querySelectorAll('.hero__legend-item')
 		this.legendImgs = document.querySelectorAll('.img.legends_img')
 		gsap.set(this.legendImgs, {

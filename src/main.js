@@ -4,7 +4,8 @@ import Preloader from './animation/preloader'
 import Split from './utils/split'
 import pageTransition from './animation/transitionload'
 import CardScroll from './animation/cardscroll'
-import TextFade from './animation/text'
+import Slide from './animation/text'
+import Fade from './animation/fade'
 import './styles/style.css'
 
 class App {
@@ -40,9 +41,10 @@ class App {
 	}
 
 	init() {
-		new Split()
-		new TextFade()
 		Scroll()
+		new Split()
+		new Slide()
+		new Fade()
 		this.initHover()
 		new pageTransition()
 		this.initPreload()
@@ -50,6 +52,4 @@ class App {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-	new App()
-})
+new App()

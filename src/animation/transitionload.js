@@ -48,6 +48,7 @@ export default class pageTransition {
 
 		const tl = gsap.timeline({
 			onComplete: this.updatePage.bind(this),
+			paused: false,
 		})
 
 		tl.to(
@@ -81,15 +82,11 @@ export default class pageTransition {
 			'.t__wrap.second',
 			{
 				y: '100svh',
-				duration: 1.75,
-				ease: CustomEase.create(
-					'custom',
-					'M0,0 C0.084,0.61 0.131,0.712 0.2,0.8 0.284,0.908 0.374,1 1,1 ',
-				),
+				duration: 1.6,
+				ease: 'expo.out',
 			},
 			'<+0.55',
 		)
-
 		tl.from(
 			'.t__wrap.second [data-animation=head]',
 			{
@@ -114,7 +111,6 @@ export default class pageTransition {
 			},
 			'<',
 		)
-
 		if (this.smallTransEl.length > 0) {
 			tl.from(
 				this.smallTransEl,
@@ -129,7 +125,6 @@ export default class pageTransition {
 				'<',
 			)
 		}
-
 		if (this.whipe && this.img) {
 			tl.fromTo(
 				this.whipe,
@@ -153,7 +148,7 @@ export default class pageTransition {
 				},
 				{
 					scale: 1,
-					duration: 1.6,
+					duration: 1,
 					ease: 'power2.out',
 				},
 				'<',

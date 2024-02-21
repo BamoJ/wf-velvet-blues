@@ -31,6 +31,7 @@ export default class Preloader {
 				gsap.set('.intro__load', {
 					display: 'none',
 				})
+				this.tl.kill()
 			},
 		})
 			.to(

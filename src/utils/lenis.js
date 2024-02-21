@@ -1,4 +1,5 @@
 import Lenis from '@studio-freight/lenis'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default function Scroll() {
 	const lenis = new Lenis({
@@ -8,6 +9,10 @@ export default function Scroll() {
 		wheelMultiplier: 1,
 		autoResize: true,
 		touchMultiplier: 1,
+	})
+
+	lenis.on('scroll', () => {
+		ScrollTrigger.update()
 	})
 
 	const raf = (time) => {
