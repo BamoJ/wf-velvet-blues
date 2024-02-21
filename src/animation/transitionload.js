@@ -81,8 +81,11 @@ export default class pageTransition {
 			'.t__wrap.second',
 			{
 				y: '100svh',
-				duration: 1.65,
-				ease: 'expo.out',
+				duration: 1.75,
+				ease: CustomEase.create(
+					'custom',
+					'M0,0 C0.084,0.61 0.131,0.712 0.2,0.8 0.284,0.908 0.374,1 1,1 ',
+				),
 			},
 			'<+0.55',
 		)
@@ -113,7 +116,6 @@ export default class pageTransition {
 		)
 
 		if (this.smallTransEl.length > 0) {
-			// Check if any elements were found
 			tl.from(
 				this.smallTransEl,
 				{
@@ -136,7 +138,7 @@ export default class pageTransition {
 				},
 				{
 					height: '0%',
-					duration: 2,
+					duration: 1.8,
 					ease: CustomEase.create(
 						'custom',
 						'M0,0 C0.084,0.61 0.131,0.712 0.2,0.8 0.284,0.908 0.374,1 1,1 ',

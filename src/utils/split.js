@@ -14,7 +14,7 @@ export default class Split {
 				this.textContent = text.textContent
 
 				this.split = new SplitType(this.text, {
-					types: 'lines,words,chars',
+					types: 'lines, words, chars',
 					lineClass: 'lineChild',
 				})
 

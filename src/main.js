@@ -4,6 +4,7 @@ import Preloader from './animation/preloader'
 import Split from './utils/split'
 import pageTransition from './animation/transitionload'
 import CardScroll from './animation/cardscroll'
+import TextFade from './animation/text'
 import './styles/style.css'
 
 class App {
@@ -40,6 +41,7 @@ class App {
 
 	init() {
 		new Split()
+		new TextFade()
 		Scroll()
 		this.initHover()
 		new pageTransition()
