@@ -2,34 +2,30 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-export default class Fade {
+export default class Slide {
 	constructor() {
-		this.el = document.querySelectorAll('[data-animation=fade]')
+		this.el = document.querySelectorAll('[data-animation=slide]')
 		this.init()
 	}
 
-	fadeIn() {
+	slideIn() {
 		this.el.forEach((el) => {
-			this.words = el.querySelectorAll('.word')
+			this.lineWords = el.querySelectorAll('.line_inner')
 
-			if (this.words.length === 0) return
+			if (this.lineWords.length === 0) return
 
 			this.tl = gsap.timeline({
 				paused: true,
 			})
-			this.tl.from(this.words, {
-				opacity: 0,
-				stagger: {
-					each: 0.0025,
-					from: 'random',
-				},
-				duration: 2,
-				ease: 'sine.out',
+			this.tl.from(this.lineWords, {
+				yPercent: 100,
+				duration: 1,
+				ease: 'power1.out',
 			})
 
 			ScrollTrigger.create({
 				trigger: el,
-				start: 'top 80%',
+				start: 'top 90%',
 				end: 'bottom bottom',
 				animation: this.tl,
 				toggleActions: 'play none none reverse',
@@ -38,6 +34,6 @@ export default class Fade {
 	}
 
 	init() {
-		this.fadeIn()
+		this.slideIn()
 	}
 }

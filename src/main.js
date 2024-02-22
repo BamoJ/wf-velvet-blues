@@ -3,9 +3,10 @@ import IndexHover from './animation/indexhover'
 import Preloader from './animation/preloader'
 import Split from './utils/split'
 import pageTransition from './animation/transitionload'
-import CardScroll from './animation/cardscroll'
-import Slide from './animation/text'
-import Fade from './animation/fade'
+import CardScroll from './animation/scroll/cardscroll'
+import Slide from './animation/text/text'
+import Fade from './animation/text/fade'
+import Line from './animation/line'
 import './styles/style.css'
 
 class App {
@@ -45,6 +46,7 @@ class App {
 		new Split()
 		new Slide()
 		new Fade()
+		new Line()
 		this.initHover()
 		new pageTransition()
 		this.initPreload()
