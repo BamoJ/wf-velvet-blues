@@ -41,7 +41,9 @@ export default class pageTransition {
 	transition() {
 		document.querySelector('html').classList.add('animating')
 		this.whipe = document.querySelector('.t__wrap.second .img_whipe')
-		this.img = document.querySelector('.t__wrap.second .img')
+		this.img = document.querySelector(
+			'.t__wrap.second [data-animation=t-whipe]',
+		)
 		this.smallTransEl = document.querySelectorAll(
 			'.t__wrap.second [data-animation=trans-p]',
 		)
@@ -63,9 +65,9 @@ export default class pageTransition {
 		tl.to(
 			'.t__wrap.first',
 			{
-				opacity: 0.1,
+				opacity: 0,
 				duration: 1,
-				ease: 'power1.out',
+				ease: 'sine.out',
 			},
 			0,
 		)

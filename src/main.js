@@ -52,4 +52,7 @@ class App {
 	}
 }
 
-new App()
+window.Webflow ||= []
+window.Webflow.push(() => {
+	new App()
+})
