@@ -33,7 +33,7 @@ export default class QuoteScroll {
 				pinSpacing: true,
 				trigger: '.quotes__wrapper',
 				scrub: 1,
-				start: 'top top',
+				start: 'top 10%',
 				end: '+=100%',
 				animation: this.tl,
 				toggleActions: 'play none none reverse',
