@@ -1,12 +1,31 @@
-import Scroll from './utils/lenis'
+/*
+ * Main JS file for the project
+ * This file is used to initialize the project and import the necessary modules
+ */
+
+/**
+ * Utility functions
+ */
+import SmoothScroll from './utils/lenis'
+import Split from './utils/split'
+
+/**
+ * Animation modules
+ */
 import IndexHover from './animation/indexhover'
 import Preloader from './animation/preloader'
-import Split from './utils/split'
 import pageTransition from './animation/transitionload'
 import CardScroll from './animation/scroll/cardscroll'
+import QuoteScroll from './animation/scroll/quotes'
+import Line from './animation/line'
+
+/**
+ * Text animations
+ */
 import Slide from './animation/text/text'
 import Fade from './animation/text/fade'
-import Line from './animation/line'
+import Title from './animation/text/title'
+
 import './styles/style.css'
 
 class App {
@@ -42,13 +61,15 @@ class App {
 	}
 
 	init() {
-		Scroll()
+		new SmoothScroll()
 		new Split()
 		new Slide()
 		new Fade()
+		new Title()
+		new QuoteScroll()
 		new Line()
-		this.initHover()
 		new pageTransition()
+		this.initHover()
 		this.initPreload()
 		this.initCardScroll()
 	}

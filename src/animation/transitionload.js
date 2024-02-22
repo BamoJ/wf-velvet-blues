@@ -1,10 +1,12 @@
 import gsap from 'gsap' // Import GSAP
 import CustomEase from 'gsap/CustomEase' // Import CustomEase
+import SmoothScroll from '../utils/lenis'
 
 gsap.registerPlugin(CustomEase) // Register CustomEase
 
 export default class pageTransition {
 	constructor() {
+		this.scroll = new SmoothScroll()
 		this.init()
 
 		document.querySelector('.t__wrap').classList.add('first')
@@ -33,6 +35,7 @@ export default class pageTransition {
 						this.transition()
 					}
 				}
+
 				xhr.send()
 			})
 		})
@@ -49,8 +52,10 @@ export default class pageTransition {
 		)
 
 		const tl = gsap.timeline({
-			onComplete: this.updatePage.bind(this),
-			paused: false,
+			onComplete: () => {
+				this.updatePage()
+				document.querySelector('html').classList.remove('animating')
+			},
 		})
 
 		tl.to(
@@ -160,6 +165,9 @@ export default class pageTransition {
 
 	updatePage() {
 		window.location = this.nextPageLink
+		window.addEventListener('load', () => {
+			this.scroll.stopScroll()
+		})
 	}
 
 	init() {

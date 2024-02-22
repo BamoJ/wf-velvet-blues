@@ -1,42 +1,45 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 gsap.registerPlugin(ScrollTrigger)
 
-export default class Fade {
+export default class QuoteScroll {
 	constructor() {
-		this.el = document.querySelectorAll('[data-animation=fade]')
+		this.el = document.querySelectorAll("[data-animation='quotes']")
+
 		this.init()
 	}
 
-	fadeIn() {
+	quoteScroll() {
 		this.el.forEach((el) => {
-			this.words = el.querySelectorAll('.word')
+			gsap.set(el, {
+				perspective: 1000,
+				perspectiveOrigin: '100% 50%',
+			})
 
-			if (this.words.length === 0) return
-
+			this.quote = el.querySelectorAll('.word')
 			this.tl = gsap.timeline({
 				paused: true,
 			})
-			this.tl.from(this.words, {
-				opacity: 0,
-				stagger: {
-					amount: 0.8,
-					from: 'random',
-				},
-				duration: 1,
+			this.tl.from(this.quote, {
+				opacity: 0.1,
+				duration: 2,
 				ease: 'sine.out',
+				stagger: 0.6,
 			})
 
 			ScrollTrigger.create({
-				trigger: el,
-				start: 'top 80%',
-				end: 'bottom bottom',
+				pin: true,
+				pinSpacing: true,
+				trigger: '.quotes__wrapper',
+				scrub: 1,
+				start: 'top top',
+				end: '+=100%',
 				animation: this.tl,
 				toggleActions: 'play none none reverse',
 			})
 		})
 	}
-
 	destroy() {
 		ScrollTrigger.getAll().forEach((trigger) => {
 			trigger.kill()
@@ -49,6 +52,6 @@ export default class Fade {
 	}
 
 	init() {
-		this.fadeIn()
+		this.quoteScroll()
 	}
 }

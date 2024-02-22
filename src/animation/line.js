@@ -16,8 +16,8 @@ export default class Line {
 			})
 			this.tl.from(el, {
 				width: 0,
-				duration: 1.5,
-				ease: 'power3.inOut',
+				duration: 2,
+				ease: 'expo.out',
 			})
 
 			ScrollTrigger.create({
