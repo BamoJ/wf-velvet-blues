@@ -36,7 +36,6 @@ export default class QuoteScroll {
 				start: 'top 10%',
 				end: '+=100%',
 				animation: this.tl,
-				toggleActions: 'play none none reverse',
 			})
 		})
 	}

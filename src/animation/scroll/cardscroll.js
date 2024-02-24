@@ -20,7 +20,7 @@ export default class CardScroll {
 			.timeline({
 				scrollTrigger: {
 					trigger: '.track',
-					start: 'top top',
+					start: 'top 5%',
 					end: 'bottom bottom',
 					pin: true,
 					scrub: 0.6,
@@ -55,6 +55,23 @@ export default class CardScroll {
 				},
 				'<+0.75',
 			)
+	}
+
+	// Kill all ScrollTriggers on destroy
+	destroy() {
+		ScrollTrigger.getAll().forEach((trigger) => {
+			trigger.kill()
+		})
+	}
+
+	/**
+	 * re-init the animation on resize
+	 *
+	 *   */
+
+	onResize() {
+		this.destroy()
+		this.initCardScroll()
 	}
 
 	initCardScroll() {

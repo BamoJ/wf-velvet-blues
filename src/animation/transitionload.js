@@ -1,12 +1,10 @@
 import gsap from 'gsap' // Import GSAP
 import CustomEase from 'gsap/CustomEase' // Import CustomEase
-import SmoothScroll from '../utils/lenis'
 
 gsap.registerPlugin(CustomEase) // Register CustomEase
 
 export default class pageTransition {
 	constructor() {
-		this.scroll = new SmoothScroll()
 		this.init()
 
 		document.querySelector('.t__wrap').classList.add('first')
@@ -57,7 +55,6 @@ export default class pageTransition {
 				document.querySelector('html').classList.remove('animating')
 			},
 		})
-
 		tl.to(
 			'.t__wrap.first',
 			{
@@ -97,11 +94,11 @@ export default class pageTransition {
 		tl.from(
 			'.t__wrap.second [data-animation=head]',
 			{
-				yPercent: 110,
-				duration: 1,
+				yPercent: 115,
+				duration: 1.25,
 				ease: 'power4.easeOut',
 				stagger: {
-					each: 0.025,
+					each: 0.04,
 				},
 			},
 			'<+0.35',
@@ -165,9 +162,6 @@ export default class pageTransition {
 
 	updatePage() {
 		window.location = this.nextPageLink
-		window.addEventListener('load', () => {
-			this.scroll.stopScroll()
-		})
 	}
 
 	init() {

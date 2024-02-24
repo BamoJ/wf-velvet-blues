@@ -32,7 +32,7 @@ export default class Fade {
 				start: 'top 80%',
 				end: 'bottom bottom',
 				animation: this.tl,
-				toggleActions: 'play none none reverse',
+				toggleActions: 'play none none none',
 			})
 		})
 	}

@@ -1,8 +1,9 @@
 import Lenis from '@studio-freight/lenis'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-export default class SmoothScroll {
+export default class SmoothScroll extends Lenis {
 	constructor() {
+		super()
 		this.lenis = new Lenis({
 			duration: 1.45,
 			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

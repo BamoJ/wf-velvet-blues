@@ -25,7 +25,7 @@ export default class Line {
 				start: 'top 90%',
 				end: 'bottom bottom',
 				animation: this.tl,
-				toggleActions: 'play none none reverse',
+				toggleActions: 'play none none none',
 			})
 		})
 	}
