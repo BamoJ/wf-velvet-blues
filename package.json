@@ -16,11 +16,8 @@
 		"vite": "^2.9.16"
 	},
 	"dependencies": {
-		"@barba/core": "^2.9.7",
 		"@studio-freight/lenis": "^1.0.16",
-		"@unseenco/taxi": "^1.5.1",
 		"gsap": "^3.12.5",
-		"jquery": "^3.7.1",
 		"split-type": "^0.3.3"
 	}
 }
