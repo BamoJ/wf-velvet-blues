@@ -12,11 +12,6 @@ export default class QuoteScroll {
 
 	quoteScroll() {
 		this.el.forEach((el) => {
-			gsap.set(el, {
-				perspective: 1000,
-				perspectiveOrigin: '100% 50%',
-			})
-
 			this.quote = el.querySelectorAll('.word')
 			this.tl = gsap.timeline({
 				paused: true,

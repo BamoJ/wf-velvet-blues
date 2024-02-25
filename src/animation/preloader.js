@@ -26,13 +26,6 @@ export default class Preloader {
 			scale: true,
 			absolute: true,
 			stagger: 0.035,
-			onComplete: () => {
-				this.wrap.classList.toggle('flex')
-				gsap.set('.intro__load', {
-					display: 'none',
-				})
-				this.tl.kill()
-			},
 		})
 			.to(
 				'.whipe',

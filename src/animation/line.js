@@ -11,14 +11,18 @@ export default class Line {
 	lineIn() {
 		this.el.forEach((el) => {
 			if (this.el === 0) return
-			this.tl = gsap.timeline({
-				paused: true,
-			})
-			this.tl.from(el, {
-				width: 0,
-				duration: 2,
-				ease: 'expo.out',
-			})
+			this.tl = gsap
+				.timeline({
+					paused: true,
+					onComplete: () => {
+						this.destroy()
+					},
+				})
+				.from(el, {
+					width: 0,
+					duration: 2,
+					ease: 'expo.out',
+				})
 
 			ScrollTrigger.create({
 				trigger: el,
@@ -28,6 +32,17 @@ export default class Line {
 				toggleActions: 'play none none none',
 			})
 		})
+	}
+
+	destroy() {
+		this.el.forEach((el) => {
+			ScrollTrigger.getAll(el).kill()
+		})
+	}
+
+	resize() {
+		this.destroy()
+		this.init()
 	}
 
 	init() {

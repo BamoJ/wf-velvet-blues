@@ -64,11 +64,6 @@ export default class CardScroll {
 		})
 	}
 
-	/**
-	 * re-init the animation on resize
-	 *
-	 *   */
-
 	onResize() {
 		this.destroy()
 		this.initCardScroll()
