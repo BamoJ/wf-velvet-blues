@@ -3,6 +3,8 @@
  * This file is used to initialize the project and import the necessary modules
  */
 
+import hello from './hello'
+
 /**
  * Utility functions
  */
@@ -72,6 +74,7 @@ class App {
 		this.initHover()
 		this.initPreload()
 		this.initCardScroll()
+		hello()
 	}
 }
 
