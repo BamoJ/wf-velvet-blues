@@ -5,8 +5,8 @@ Repo is inspired by [Armand Salle](https://github.com/armandsalle), Link to orig
 Stacks:
 
 ```
-# [GSAP](https://gsap.com/)
-# [Lenis](https://github.com/darkroomengineering/lenis)
+# [GSAP] 
+# [Lenis] 
 ```
 
 ## How to use
