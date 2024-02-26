@@ -2,7 +2,7 @@
 
 Stacks:
 
-```sh
+``` 
 # GSAP
 # Three
 # Lenis
