@@ -25,7 +25,7 @@ export default class Preloader {
 			ease: 'power3.inOut',
 			scale: true,
 			absolute: true,
-			stagger: 0.035,
+			stagger: 0.04,
 		})
 			.to(
 				'.whipe',
@@ -85,7 +85,7 @@ export default class Preloader {
 				'<+.3',
 			)
 			.from(
-				'.nav__line',
+				'[data-el-navline]',
 				{
 					width: '0%',
 					duration: 1.8,
@@ -143,11 +143,11 @@ export default class Preloader {
 
 			.from(this.imgs, {
 				duration: 0.4,
-				ease: 'power3.easeOut',
-				scaleY: 0,
+				yPercent: 100,
 				stagger: {
 					each: 0.3,
 					from: 'start',
+					ease: 'power1.easeOut',
 				},
 			})
 			.add(() => {

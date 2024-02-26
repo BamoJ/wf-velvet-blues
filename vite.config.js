@@ -16,6 +16,7 @@ export default defineConfig({
 		rollupOptions: {
 			input: './src/main.js',
 			output: {
+				outDir: './dist',
 				format: 'umd',
 				entryFileNames: 'main.js',
 				esModule: false,
