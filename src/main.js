@@ -3,8 +3,6 @@
  * This file is used to initialize the project and import the necessary modules
  */
 
-import hello from './hello'
-
 /**
  * Utility functions
  */
@@ -27,6 +25,12 @@ import Line from './animation/line'
 import Slide from './animation/text/text'
 import Fade from './animation/text/fade'
 import Title from './animation/text/title'
+
+/**
+ * Random Message :D
+ */
+
+import hello from './hello'
 
 import './styles/style.css'
 
