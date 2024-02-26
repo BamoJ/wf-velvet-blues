@@ -1,4 +1,6 @@
 # Webflow Project Dev Starter
+Note: This is just my take on using local dev server when building with webflow — Definitely not the most efficient or the best approach to do so. 
+Repo is inspired by [Armand Salle](https://github.com/armandsalle), Link to original Repo is right [here](https://github.com/armandsalle/vite-javascript-webflow)
 
 Stacks:
 
