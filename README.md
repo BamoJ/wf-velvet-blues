@@ -2,12 +2,10 @@
 
 Stacks:
 
-``` 
+`
 # GSAP
-# Three
 # Lenis
-# Barba
-```
+`
 
 ## How to use
   Paste this script into the `Before </body> tag` part of the Webflow custom code in the project settings so that it loads on all pages.
